@@ -1,27 +1,20 @@
-//the simplest fetch you can use and still have error handling
-const url = 'https://jsonplaceholder.typicode.com/users';
+// //the simplest fetch you can use and still have error handling
+// const url = 'https://jsonplaceholder.typicode.com/users';
 
-export function getData() {
-  //
-  fetch(url)
-    .then((resp) => {
-      // console.log(resp);
-      //error checking
-      //200-299
-      if (!resp.ok) throw new Error('was not a valid response');
-      return resp.json(); //method to extract JSON string and convert it to an Object
-    })
-    .then((dataobj) => {
-      console.log(dataobj);
-    })
-    .catch((err) => {
-      console.warn(err.message);
-    });
+//  export function getData() {
+//   fetch(url)
+//   .then((resp) => {
+//     if (!resp.ok) throw new Error('was not a valid response');
+//     return resp.json(); // METHOD to extract JSOn String and convert to it an Object.
+//   })
+//   .then((dataobjc) => {
+//     console.log(dataobjc)
+//   })
+//   .catch((error) => {
+//     console.warn('Error, the it catched', error)
+//   });
+// }
 
-  //The code below will always fail.
-  // let response = fetch(url);
-  // let dataobj = response.json();
-  // console.log(dataobj);
-}
+// function fred(resp) {}
 
-function fred(resp) {}
+// console.log(getData());

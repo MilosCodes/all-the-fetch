@@ -15,9 +15,25 @@ Headers
 
 const str = 'http://127.0.0.1:5500/local-sample.json?attempt=123&other=hello';
 
+// export function getData() {
+//   const url = new URL(str);
+//   console.log(url.host, url.origin, url.protocol, url.pathname);
+//   const request = new Request(url, {
+//     headers: {'x-steve': 'hello'},
+//     method: 'GET',
+//     cache: 'no-store',
+//   });
+//   fetch(request)
+//   .then((response) => {
+//     if(!response.ok) throw new Error('invalid ');
+//     return response.json();
+//   console.log(response.status)
+//   }).then().catch(err=>console.warn(err.message));
+// }
+
+
 export function getData() {
   const url = new URL(str);
-  console.log(url.host, url.origin, url.protocol, url.pathname);
   const request = new Request(url, {
     headers: {'x-steve': 'hello'},
     method: 'GET',

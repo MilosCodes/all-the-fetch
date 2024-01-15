@@ -10,11 +10,38 @@ export function getData() {
   let header = document.querySelector('header');
 
   fetch(jsonstr)
+  .then(response=> {
+    if(!response.ok) throw Error('Invalid');
+    return response.json();
+  })
+  .then(dataArray => {
+    //
+    list.innerHTML = dataArray.map((uid, first_name, last_name)=> {
+      return `<ul id="list">
+      <li data-uid="${uid}">
+        <p>${first_name}</p>
+        <p>${last_name}</p>
+      </li>
+    </ul>`;
+     
+    }).join('');
+  })
+  .catch(console.warn);
+
+  fetch(jsonstr)
     .then((response) => {
       if (!response.ok) throw new Error('invalid');
       return response.json();
     })
-   
+    fetch(textstr)
+    .then(response=> {
+      if(response.ok) throw Error('Invalid');
+      return response.text();
+    })
+    .then(txt=> {
+      header.innerHTML += `<h2>${txt}</h2>`;
+    })
+    .catch(console.warn);
   fetch(imgstr)
     .then((resp) => {
       if (!resp.ok) throw new Error('invalid');
